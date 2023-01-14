@@ -135,6 +135,24 @@ function showAllGames() {
 
 }
 
+//search customization
+function searchFilterOnly(event){
+    deleteChildElements(gamesContainer);
+    event.preventDefault();
+    let searchTerm = search.value;
+    const searchResults = [];
+    for (let index = 0; index < GAMES_JSON.length; index++) {
+        const element = GAMES_JSON[index];
+        if (element["name"].toLowerCase().includes(searchTerm.toLowerCase())){
+            searchResults.push(element);
+        }
+        
+    }
+    console.log(searchResults);
+    addGamesToPage(searchResults);    
+    
+}
+
 // select each button in the "Our Games" section
 const unfundedBtn = document.getElementById("unfunded-btn");
 const fundedBtn = document.getElementById("funded-btn");
@@ -144,6 +162,10 @@ const allBtn = document.getElementById("all-btn");
 unfundedBtn.addEventListener("click", filterUnfundedOnly);
 fundedBtn.addEventListener("click", filterFundedOnly);
 allBtn.addEventListener("click", showAllGames);
+
+//customization
+const formElement = document.getElementById("form");
+formElement.addEventListener("submit",searchFilterOnly);
 
 
 
@@ -184,8 +206,6 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 
 // use destructuring and the spread operator to grab the first and second games
 let [firstGame, secondGame, ...rest] = sortedGames;
-console.log(firstGame);
-console.log(secondGame);
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
 let topPledged = document.createElement('p');
