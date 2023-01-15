@@ -17,7 +17,7 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-* [X] The background is a linear gradient from top to bottom. It starts as orange and transitions to yellow at the bottom of the page.
+* [X] The background is a linear gradient from top to bottom. It starts as a shade of orange and transitions to yellow at the bottom of the page.
 * [X] The Our Games section contains a search box which allows a user to display games containing the searched phrase, and it's case insensitive.
 
 ## Video Walkthrough
